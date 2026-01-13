@@ -6,9 +6,13 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 app.use(cors({
-  origin: process.env.CLIENT_URL,
+  origin: [
+    "http://localhost:5173",
+    "https://gigflow-platform.vercel.app"
+  ],
   credentials: true
 }));
+
 
 app.use(express.json());      // ✅ THIS LINE IS REQUIRED
 app.use(cookieParser());
